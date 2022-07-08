@@ -1,0 +1,607 @@
+/* #09FDD9 
+#FE0A54
+#1D1D1D-> background
+#222222-> for writing bold letters
+#4A4A4A---> for headings */
+
+/* 
+font-family: "Heebo", sans-serif; 
+font-family: "Lora", serif; 
+font-family: "Poppins", sans-serif;
+*/
+
+body {
+  background-color: #1d1d1d;
+  display: block;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-family: "Lora", serif;
+  font-size: 3vh;
+}
+
+h3 {
+  color: #444;
+}
+
+/* sidebar */
+.sidebar {
+  width: 250px;
+  height: 100vh; /*It means it is 100% hight of viewport */
+  position: fixed;
+  top: 0;
+  left: -255px;
+  z-index: 999;
+  background: #222222;
+  color: #fff;
+  transition: all 0.3s;
+  box-shadow: 3px 3px 3px rgba(51, 51, 51, 0.5);
+  text-align: left;
+}
+.sidebar.active {
+  left: 0;
+}
+
+/* overlay */
+/***** Dark overlay *****/
+
+.overlay {
+  display: none;
+  position: fixed;
+  width: 100vw; /*100% width of viewport*/
+  height: 100vh; /*100% height of viewport*/
+  background: rgba(51, 51, 51, 0.7);
+  z-index: 998;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+}
+
+.overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* menu button */
+.open-menu {
+  position: fixed;
+  background-color: #1d1d1d;
+  width: 100vw;
+  top: 0px;
+  left: 10px;
+  z-index: 997;
+  font-size: 3vw;
+  color: white;
+}
+
+/* span class */
+a.btn-customized {
+  margin-left: 10px;
+  margin-right: 5px;
+  padding: 0.75rem 1.5rem;
+  border: 0;
+  font-size: 25px;
+  font-weight: 400;
+  color: #444;
+  box-shadow: none;
+}
+
+a.btn-customized:hover,
+a.btn-customized:active,
+a.btn-customized:focus,
+a.btn-customized:active:focus,
+a.btn-customized.active:focus,
+a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active,
+a.btn-customized.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+  outline: 0;
+  background: #222222; /* for browsers that don't recognize rgba */
+  border: 0;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* dismiss button */
+.dismiss {
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: relative;
+  top: 40px;
+  left: 40px;
+  transition: all 0.3s;
+  background: #444;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 35px;
+  cursor: pointer;
+}
+
+.dismiss:hover,
+.dismiss:focus {
+  background: #555;
+  color: #fff;
+}
+
+/* to top button */
+.sidebar .to-top {
+  padding: 20px;
+  text-align: center;
+}
+
+a.btn-customized-3 {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  background: #444;
+  border: 0;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: 300;
+  color: #fff;
+  box-shadow: none;
+}
+
+a.btn-customized-3:hover,
+a.btn-customized-3:active,
+a.btn-customized-3:focus,
+a.btn-customized-3:active:focus,
+a.btn-customized-3.active:focus,
+a.btn-customized-3.btn.btn-primary:not(:disabled):not(.disabled):active,
+a.btn-customized-3.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+  outline: 0;
+  background: #555;
+  border: 0;
+  color: #fff;
+  box-shadow: none;
+}
+
+a.btn-customized-3 i {
+  margin-right: 5px;
+}
+
+/* list iteams */
+.sidebar ul.menu-elements {
+  padding: 50px 20px;
+  border-bottom: 1px solid #444;
+  transition: all 0.3s;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 20px 20px;
+  border: 0;
+  color: #fff;
+  text-decoration: #444;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li a:focus,
+.sidebar ul li.active > a:hover,
+.sidebar ul li.active > a:focus {
+  outline: 0;
+  color: #fe0a54;
+}
+
+.sidebar ul li a i {
+  margin-right: 5px;
+}
+
+.sidebar ul ul a {
+  background: #444;
+  padding-left: 30px;
+  font-size: 14px;
+}
+
+.sidebar a[data-toggle="collapse"] {
+  position: relative;
+}
+
+.sidebar .dropdown-toggle::after {
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+
+/* content  */
+.content {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.3s;
+  color: #fff;
+}
+/* https://www.youtube.com/watch?v=fYq5PXgSsbE (if you are confused in flexbox) */
+.flexbox-container {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
+
+.flexbox-item-2 {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+@media (max-width: 900px) {
+  .flexbox-item-2 {
+    height: 50vh;
+  }
+}
+
+.flexbox-item-2-1 {
+  font-size: 6vw;
+  padding: 0 6rem;
+  line-height: 1.2;
+}
+
+.flexbox-item-2-2 {
+  font-size: 2vw;
+  padding: 1rem 6rem 0;
+  font-family: "Heebo", sans-serif;
+  color: #444;
+  font-weight: bolder;
+}
+
+.flexbox-item-2-3 {
+  font-size: 2vw;
+  padding: 1rem 6rem;
+}
+
+/* Social links*/
+.icon {
+  padding: 1vw 2vw;
+  font-weight: 400;
+  color: #444;
+  box-shadow: none;
+}
+
+.icon:hover,
+.icon:active,
+.icon:focus,
+.icon:active:focus,
+.icon.active:focus,
+.icon.btn.btn-primary:not(:disabled):not(.disabled):active,
+.icon.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+  outline: 0;
+  background: #222222; /* for browsers that don't recognize rgba */
+  border: 0;
+  color: #fff;
+  box-shadow: none;
+}
+
+/* scroll */
+.scroll-down {
+  opacity: 1;
+  -webkit-transition: all 0.5s ease-in 3s;
+  transition: all 0.5s ease-in 3s;
+}
+
+.scroll-down {
+  position: relative;
+  left: 50%;
+  margin-left: -16px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  border: 2px solid #fff;
+  background-size: 14px auto;
+  border-radius: 50%;
+  z-index: 2;
+  -webkit-animation: bounce 2s infinite 2s;
+  animation: bounce 2s infinite 2s;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  transform: scale(1);
+}
+
+.scroll-down:before {
+  position: relative;
+  top: calc(50% - 8px);
+  left: calc(50% - 6px);
+  transform: rotate(-45deg);
+  display: block;
+  width: 12px;
+  height: 12px;
+  content: "";
+  border: 2px solid white;
+  border-width: 0px 0 2px 2px;
+}
+
+@keyframes bounce {
+  0%,
+  100%,
+  20%,
+  50%,
+  80% {
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+    transform: translateY(0);
+  }
+  40% {
+    -webkit-transform: translateY(-10px);
+    -ms-transform: translateY(-10px);
+    transform: translateY(-10px);
+  }
+  60% {
+    -webkit-transform: translateY(-5px);
+    -ms-transform: translateY(-5px);
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .flexbox-item-2-4 {
+    display: none;
+  }
+}
+/* education */
+.flexbox-item-3 {
+  display: flex;
+  justify-content: left;
+}
+
+.flexbox-item-3-1 {
+  font-size: 7vw;
+  writing-mode: vertical-lr;
+  transform: rotate(-180deg);
+  text-align: left;
+  color: #222222;
+}
+.flexbox-item-3-2 {
+  font-size: 3vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  line-height: 6vh;
+}
+
+.flexbox-item-3-2-1,
+.flexbox-item-3-2-2 {
+  background-color: #222222;
+  margin: 0 4vw;
+  padding: 2vw;
+  border-left: 0.5vw solid #fe0a54;
+  line-height: 1;
+}
+
+.flexbox-item-3-2-2 {
+  border-left: 0.5vw solid #09fdd9;
+  padding-right: 8vw;
+}
+
+.edu-1 {
+  color: #09fdd9;
+}
+
+.edu-2,
+.edu-3 {
+  color: #fe0a54;
+}
+.branch {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5vw;
+}
+
+.marks {
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .flexbox-item-3-2 {
+    flex-direction: column;
+  }
+  .flexbox-item-3-1 {
+    display: none;
+  }
+
+  .flexbox-item-3-2-1,
+  .flexbox-item-3-2-2,
+  .flexbox-item-3-2-3 {
+    width: 75vw;
+  }
+}
+
+/* skills starts  */
+
+.skills-heading,
+.skills-heading-1 {
+  font-family: "Poppins", sans-serif;
+  color: #444;
+  text-align: left;
+  margin-top: 5vh;
+  flex-shrink: 0;
+  font-size: 4vw;
+}
+.skills-heading-1 {
+  color: #1d1d1d;
+}
+
+.flexbox-item-4 {
+  display: flex;
+  justify-content: left;
+  margin-top: 7vh;
+}
+
+.flexbox-item-4-1 {
+  font-size: 7vw;
+  margin-top: 2vw;
+  writing-mode: vertical-lr;
+  transform: rotate(-180deg);
+  text-align: left;
+  color: #222222;
+}
+
+.flexbox-item-4-2 {
+  display: flex;
+  flex-direction: row;
+}
+
+.flexbox-item-4-2-1,
+.flexbox-item-4-2-2 {
+  width: 40vw;
+  margin: 5vh 2vw;
+}
+
+.progress-edit {
+  margin-top: 7vh;
+}
+
+.progress {
+  background-color: #222222;
+}
+
+.progress-bar {
+  background-color: #fe0a54;
+}
+
+@media (max-width: 900px) {
+  .flexbox-item-4-2 {
+    flex-direction: column;
+  }
+
+  .flexbox-item-4-1 {
+    display: none;
+  }
+}
+
+/* My Projects  */
+.flexbox-item-5 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10vh;
+}
+
+.flexbox-item-5-1 {
+  font-size: 7vw;
+  margin-top: 2vw;
+  writing-mode: vertical-lr;
+  transform: rotate(-180deg);
+  text-align: left;
+  color: #222222;
+}
+
+.flexbox-item-5-2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.project-1,
+.project-2,
+.project-3,
+.card {
+  margin: 5vh;
+  background-color: #222222;
+  text-align: center;
+}
+
+.btn {
+}
+
+.btn-project {
+  border: 0.3vh solid #fe0a54;
+  color: #444;
+  color: #fe0a54;
+}
+
+.btn-project:hover,
+.btn-project:active,
+.btn-project:focus,
+.btn-project:active:focus,
+.btn-project.active:focus,
+.btn-project.btn.btn-primary:not(:disabled):not(.disabled):active,
+.btn-project.btn.btn-primary:not(:disabled):not(.disabled):active:focus {
+  outline: 0;
+  background: #09fdd9; /* for browsers that don't recognize rgba */
+  border: 0.3vh solid #222222;
+  color: #fff;
+  box-shadow: none;
+}
+
+.card-title {
+  color: #09fdd9;
+}
+
+@media (max-width: 900px) {
+  .flexbox-item-5-1 {
+    display: none;
+  }
+}
+
+/* contact form */
+.flexbox-item-6 {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+}
+
+.flexbox-item-6-1 {
+  font-size: 7vw;
+  margin-top: 2vw;
+  writing-mode: vertical-lr;
+  transform: rotate(-180deg);
+  text-align: left;
+  color: #222222;
+}
+
+/* Style inputs with type="text", select elements and textareas */
+input[type="text"],
+select,
+textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */
+  border: 0.5vh solid #222222; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  background-color: #1d1d1d;
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+input[type="text"]:focus {
+  border: 0;
+}
+
+/* Style the submit button with a specific background color etc */
+input[type="submit"] {
+  background-color: #222222;
+  color: #fe0a54;
+  padding: 12px 20px;
+  border: 0.3vw solid #fe0a54;
+  border-radius: 35px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type="submit"]:hover {
+  color: #fff;
+  background-color: #fe0a54;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  background-color: #1d1d1d;
+  padding: 20px;
+}
+
+@media (max-width: 900px) {
+  .flexbox-item-6-1 {
+    display: none;
+  }
+}
+
+/* css notes
+
+Relative positioning position relative to the parent div So if multiple divs are there inside the parent div it is useless
+Absolute positioning is used when we want to stick something in screen without disturbing other alignments. it aligns wrt to the screen 
+fixed position never move from their position no matter how big is your page and are ositioned absolutely according to the viewport.
+
+skicky is relative as soon as it goes out of viewport it becomes fixed.
+if we want ot position something absolutely inside the div we must set the parent other than static.
+*/
